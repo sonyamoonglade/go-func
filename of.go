@@ -88,8 +88,12 @@ func (o OfSlice[T]) FilterNot(condition func(T) bool) OfSlice[T] {
 // It follows the same logic as the findIndex() function in Javascript.
 //
 // If the list is empty then -1 is always returned.
-func (o OfSlice[T]) FindFirstUsing(fn func(value T) bool) int {
-	return FindFirstUsing(o.Result, fn)
+func (o OfSlice[T]) IndexOf(fn func(T) bool) int {
+	return IndexOf(o.Result, fn)
+}
+
+func (o OfSlice[T]) Find(fn func(T, int) bool) T {
+	return Find(o.Result, fn)
 }
 
 // First returns the first element or a zero value if there are no elements.
