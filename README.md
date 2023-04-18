@@ -1,6 +1,6 @@
 # 🍕 `github.com/elliotchance/pie`
 [![GoDoc](https://godoc.org/github.com/elliotchance/pie?status.svg)](https://godoc.org/github.com/elliotchance/pie)
-[![Build Status](https://travis-ci.org/elliotchance/pie.svg?branch=master)](https://travis-ci.org/elliotchance/pie)
+[![Build Status](https://travis-ci.org/elliotchance/svg?branch=master)](https://travis-ci.org/elliotchance/pie)
 [![codecov](https://codecov.io/gh/elliotchance/pie/branch/master/graph/badge.svg)](https://codecov.io/gh/elliotchance/pie)
 
 **Enjoy a slice!** `pie` is a library of utility functions for common operations
@@ -30,11 +30,11 @@ import (
     "fmt"
     "strings"
 
-    "github.com/elliotchance/pie/v2"
+    
 )
 
 func main() {
-    names := pie.FilterNot([]string{"Bob", "Sally", "John", "Jane"},
+    names := FilterNot([]string{"Bob", "Sally", "John", "Jane"},
         func(name string) bool {
             return strings.HasPrefix(name, "J")
         })
@@ -45,9 +45,9 @@ func main() {
 
 Or, if you need to chain multiple operations you can use one of:
 
-- [`pie.Of`](https://pkg.go.dev/github.com/elliotchance/pie/v2#Of) - works with any element type, but functions are limited.
-- [`pie.OfOrdered`](https://pkg.go.dev/github.com/elliotchance/pie/v2#OfOrdered) - only works with numbers and strings, but has more functions.
-- [`pie.OfNumeric`](https://pkg.go.dev/github.com/elliotchance/pie/v2#OfNumeric) - only works with numbers, but has all functions.
+- [`Of`](https://pkg.go.dev/github.com/elliotchance/pie/v2#Of) - works with any element type, but functions are limited.
+- [`OfOrdered`](https://pkg.go.dev/github.com/elliotchance/pie/v2#OfOrdered) - only works with numbers and strings, but has more functions.
+- [`OfNumeric`](https://pkg.go.dev/github.com/elliotchance/pie/v2#OfNumeric) - only works with numbers, but has all functions.
 
 [Run this program](https://go.dev/play/p/4IhVbw0koxg)
 
@@ -58,11 +58,11 @@ import (
     "fmt"
     "strings"
 
-    "github.com/elliotchance/pie/v2"
+    
 )
 
 func main() {
-    name := pie.Of([]string{"Bob", "Sally", "John", "Jane"}).
+    name := Of([]string{"Bob", "Sally", "John", "Jane"}).
         FilterNot(func(name string) bool {
             return strings.HasPrefix(name, "J")
         }).
