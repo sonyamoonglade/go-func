@@ -7,15 +7,9 @@ package go_func
 // panic if the reducer is nil and the slice has more than one element (required
 // to invoke reduce). Otherwise returns result of applying reducer from left to
 // right.
-func Reduce[T any](ss []T, reducer func(T, T) T) (el T) {
-	if len(ss) == 0 {
-		return
+func Reduce[IterType, AccType any](f func(acc AccType, el IterType, i int) AccType, arr []IterType, acc AccType) AccType {
+	for i, v := range arr {
+		acc = f(acc, v, i)
 	}
-
-	el = ss[0]
-	for _, s := range ss[1:] {
-		el = reducer(el, s)
-	}
-
-	return
+	return acc
 }
