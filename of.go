@@ -180,11 +180,6 @@ func (o OfSlice[T]) SortUsing(less func(a, b T) bool) OfSlice[T] {
 	return OfSlice[T]{SortUsing(o.Result, less)}
 }
 
-// StringsUsing transforms each element to a string.
-func (o OfSlice[T]) StringsUsing(transform func(T) string) []string {
-	return StringsUsing(o.Result, transform)
-}
-
 // SubSlice will return the subSlice from start to end(excluded)
 //
 // Condition 1: If start < 0 or end < 0, nil is returned.
