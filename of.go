@@ -3,11 +3,16 @@ package go_func
 import (
 	"context"
 	"math/rand"
+	"strings"
 )
 
 // Of encapsulates a slice to be used in multiple chained operations.
 func Of[T any](ss []T) OfSlice[T] {
 	return OfSlice[T]{ss}
+}
+
+func OfSplitString(s string, sep string) OfSlice[string] {
+	return OfSlice[string]{strings.Split(s, sep)}
 }
 
 // OfSlice provides the proxy methods that operate on slices. If the last method
@@ -201,4 +206,11 @@ func (o OfSlice[T]) Top(n int) OfSlice[T] {
 // and returns the new slice.
 func (o OfSlice[T]) Unshift(elements ...T) OfSlice[T] {
 	return OfSlice[T]{Unshift(o.Result, elements...)}
+}
+
+func (o OfSlice[T]) Join(sep string) string {
+	if _, ok := any(*new(T)).(string); !ok {
+		return ""
+	}
+	return strings.Join(any(o.Result).([]string), sep)
 }
